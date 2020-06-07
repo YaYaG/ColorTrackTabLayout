@@ -1,5 +1,3 @@
-# 安卓仿IOS switchButton
-
 ## 效果图 
 
 <img src="https://raw.githubusercontent.com/YaYaG/ColorTrackTabLayout/master/img/a.gif" width="279" height="441" align="middle" />
