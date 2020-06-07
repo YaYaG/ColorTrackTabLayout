@@ -100,7 +100,7 @@ install {
 
                         name'A tablayout control whose font changes color as viewpager scrolls.'
 
-                        url'https://github.com/YaYaG/ColorTrackLayout'
+                        url'https://github.com/YaYaG/ColorTrackTabLayout'
 
                     }
 

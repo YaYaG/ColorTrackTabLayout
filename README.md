@@ -2,10 +2,29 @@
 
 <img src="https://raw.githubusercontent.com/YaYaG/ColorTrackTabLayout/master/img/a.gif" width="279" height="441" align="middle" />
 
-## 引入依赖 App依赖：
-
 ### app项目中build.gradle添加：
 
+```
+    implementation 'implementation 'com.yayaG.colorTrackTabLayout:colortracklayout:1.0.0''
+```
+
+### 在主项目中的build.gradle添加
+
+```
+    maven { url 'https://dl.bintray.com/wangjinya/maven' }
+```
+
+```
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://maven.google.com' }
+        maven { url 'https://dl.bintray.com/wangjinya/maven' }
+    }
+}
+
+```
 
 ## Adapter 可继承：
 ```

@@ -27,5 +27,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.google.android.material:material:1.1.0'
-    implementation project(path: ':colortracklayout')
+//    implementation project(path: ':colortracklayout')
+
+    implementation 'com.yayaG.colorTrackTabLayout:colortracklayout:1.0.0'
 }
