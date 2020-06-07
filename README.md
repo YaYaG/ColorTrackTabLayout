@@ -5,7 +5,7 @@
 ### app项目中build.gradle添加：
 
 ```
-    implementation 'implementation 'com.yayaG.colorTrackTabLayout:colortracklayout:1.0.0''
+    implementation 'com.yayaG.colorTrackTabLayout:colortracklayout:1.0.0'
 ```
 
 ### 在主项目中的build.gradle添加
