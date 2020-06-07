@@ -1,0 +1,174 @@
+apply plugin: 'com.android.library'
+apply plugin:'com.github.dcendents.android-maven'
+apply plugin:'com.jfrog.bintray'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'com.google.android.material:material:1.1.0'
+}
+
+//项目主页
+
+def siteUrl ='https://github.com/YaYaG/ColorTrackTabLayout'
+
+//项目的版本控制地址
+
+def gitUrl ='https://github.com/YaYaG/ColorTrackTabLayout.git'
+
+//发布到组织名称名字，必须填写
+
+group ="com.yayaG.colorTrackTabLayout"
+
+//发布到JCenter上的项目名字，必须填写
+
+def libName ="ColorTrackTabLayout"
+
+// 版本号，下次更新是只需要更改版本号即可
+
+version ="1.0.0"
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+//    archives javadocJar
+    archives sourcesJar
+}
+
+
+// 配置maven库，生成POM.xml文件
+
+install {
+
+    repositories.mavenInstaller {
+
+        // This generates POM.xml with proper parameters
+        pom {
+
+            project {
+
+                packaging'aar'
+
+                name 'A tablayout control whose font changes color as viewpager scrolls.'
+
+                url siteUrl
+
+                licenses {
+
+                    license {
+
+                        name'A tablayout control whose font changes color as viewpager scrolls.'
+
+                        url'https://github.com/YaYaG/ColorTrackLayout'
+
+                    }
+
+                }
+
+                developers {
+
+                    developer {
+
+                        id'yayaG'
+
+                        name'wangjinya'
+
+                        email 'wangjinya123456@gmail.com'
+
+                    }
+
+                }
+
+                scm {
+
+                    connection gitUrl
+
+                    developerConnection gitUrl
+
+                    url siteUrl
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+
+//上传到jcenter
+
+Properties properties =new Properties()
+
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+
+    user = 'wangjinya'//读取 local.properties 文件里面的bintray.user
+
+    key = '6f316db9a9fed089b2cd20e70ae4e527f2c9d5eb'//读取 local.properties 文件里面的bintray.apikey
+
+    configurations = ['archives']
+
+    pkg {
+
+        repo ="maven"
+
+        name ="ColorTrackTabLayout"//发布到JCenter上的项目名字，必须填写
+
+        desc ='A tablayout control whose font changes color as viewpager scrolls.' //项目描述
+
+        websiteUrl = siteUrl
+
+        vcsUrl = gitUrl
+
+        licenses = ["Apache-2.0"]
+
+        publish =true
+
+    }
+
+}

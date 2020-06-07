@@ -1,0 +1,2 @@
+include ':app', ':colortracklayout'
+rootProject.name='ColorTrackTab'
