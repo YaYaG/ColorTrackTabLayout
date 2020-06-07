@@ -5,13 +5,13 @@
 ### app项目中build.gradle添加：
 
 ```
-    implementation 'com.yayaG.colorTrackTabLayout:colortracklayout:1.0.0'
+implementation 'com.yayaG.colorTrackTabLayout:colortracklayout:1.0.0'
 ```
 
 ### 在主项目中的build.gradle添加
 
 ```
-    maven { url 'https://dl.bintray.com/wangjinya/maven' }
+maven { url 'https://dl.bintray.com/wangjinya/maven' }
 ```
 
 ```
@@ -28,38 +28,38 @@ allprojects {
 
 ## Adapter 可继承：
 ```
-    ColorTrackFragmentAdapter
-    
-    ColorTrackAdapter
+ColorTrackFragmentAdapter
+
+ColorTrackAdapter
 ```
 
 ## xml中：
 
 ```
-    <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <com.jackwang.colortracklayout.ColorTrackLayout
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp"
-        tools:context=".MainActivity">
-    
-        <com.jackwang.colortracklayout.ColorTrackLayout
-            android:id="@+id/tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:tabMode="scrollable"
-            />
-    
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-    
-    </LinearLayout>
+        android:layout_height="50dp"
+        app:tabMode="scrollable"
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
 ```
 
 ## 怎么用呢？
@@ -88,15 +88,15 @@ public class MyAdapter extends ColorTrackFragmentAdapter {
 ### Activity中调用：
 
 ```
-    MyAdapter adapter = new MyAdapter(getSupportFragmentManager(), this);
-    mViewPager.setAdapter(adapter);
-    
-    //默认颜色和字体滑动颜色
-    mTabLayout.setNormalColorAndSelectedColor(Color.BLACK, Color.GREEN);
-    //字体大小
-    mTabLayout.setTabLayoutTextSize(18);
-    
-    mTabLayout.setupWithViewPager(mViewPager, adapter);
+MyAdapter adapter = new MyAdapter(getSupportFragmentManager(), this);
+mViewPager.setAdapter(adapter);
+
+//默认颜色和字体滑动颜色
+mTabLayout.setNormalColorAndSelectedColor(Color.BLACK, Color.GREEN);
+//字体大小
+mTabLayout.setTabLayoutTextSize(18);
+
+mTabLayout.setupWithViewPager(mViewPager, adapter);
 ```
 
 <img src="https://raw.githubusercontent.com/YaYaG/ColorTrackTabLayout/master/img/b.png" width="220" height="210" align="middle" />
